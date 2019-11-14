@@ -7,6 +7,7 @@ import caseStudy.BlogBack.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,21 +22,23 @@ public class FollowingService {
     public String followthispeople(Long userid, Long userid1) {
         Optional<Users> user = userRepository.findById(userid);
         Optional<Users> user1 = userRepository.findById(userid1);
-        if(followingRepository.findByFollowerAndAndFollowing(user, user1).isPresent() && user.get()!= user1.get())
-        {
-          Following following = followingRepository.findByFollowerAndAndFollowing(user,user1).get();
-          followingRepository.save(following);
-        }
-        else {
 
-           if( user.get()!= user1.get()) {
-               Following following = new Following();
+            Following following = new Following();
 
-               following.setFollowing(user.get());
-               following.setFollower(user1.get());
-               followingRepository.save(following);
-           }
-        }
+            following.setFollowing(user.get());
+            following.setFollower(user1.get());
+            followingRepository.save(following);
+
+
 return "\"sucess\"";
+    }
+
+
+
+
+    public List<Following> findAllUser(Long userid) {
+        Optional<Users> user = userRepository.findById(userid);
+
+        return  followingRepository.findByFollower(user);
     }
 }

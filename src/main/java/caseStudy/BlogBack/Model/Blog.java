@@ -31,19 +31,33 @@ public class Blog implements Serializable {
     @ManyToOne
     private Users users;
 
-    public Blog(String blogname, String blogimage, String blogdetail, String blogheading, LocalDate date, int likes, int dislikes, String category, String access, Users users, String website) {
+    public Blog(String blogname, String blogimage, String blogdetail, String blogheading, String website, LocalDate date, int likes, int dislikes, String category, String access, Users users) {
         this.blogname = blogname;
         this.blogimage = blogimage;
         this.blogdetail = blogdetail;
         this.blogheading = blogheading;
+        this.website = website;
         this.date = date;
         this.likes = likes;
         this.dislikes = dislikes;
         this.category = category;
         this.access = access;
         this.users = users;
-        this.website= website;
     }
+
+    //    public Blog(String blogname, String blogimage, String blogdetail, String blogheading, LocalDate date, int likes, int dislikes, String category, String access, Users users, String website) {
+//        this.blogname = blogname;
+//        this.blogimage = blogimage;
+//        this.blogdetail = blogdetail;
+//        this.blogheading = blogheading;
+//        this.date = date;
+//        this.likes = likes;
+//        this.dislikes = dislikes;
+//        this.category = category;
+//        this.access = access;
+//        this.users = users;
+//        this.website= website;
+//    }
 
     public Blog() {
     }
@@ -97,7 +111,7 @@ public class Blog implements Serializable {
     }
 
     public LocalDate getDate(){
-        date =LocalDate.now();
+
         return date;
     }
 

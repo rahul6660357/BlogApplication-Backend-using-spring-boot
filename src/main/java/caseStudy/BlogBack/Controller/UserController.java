@@ -70,4 +70,10 @@ public class UserController {
     public List<Users> getAllUsers(Principal principal){
 
         return userRepository.findAll(); }
+
+    @GetMapping("/username/{name}")
+    public List<Users> getbyname(@PathVariable(value = "name") String name){
+        return  userRepository.findAllByFirstnameContaining(name);
+    }
+
 }
