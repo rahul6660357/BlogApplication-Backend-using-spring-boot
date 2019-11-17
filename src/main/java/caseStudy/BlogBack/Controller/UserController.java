@@ -36,6 +36,7 @@ public class UserController {
     @PostMapping("/adduser")
     public Users createuser(@Valid @RequestBody Users user) {
         user.setActive(1);
+        user.setImage("../assets/Images/female.jpg");
         user.setRole("admin");
         return userRepository.save(user);
     }

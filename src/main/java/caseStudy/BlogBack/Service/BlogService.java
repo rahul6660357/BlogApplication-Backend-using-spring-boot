@@ -32,7 +32,6 @@ public class BlogService {
 
         blog.setUsers(user.get());
         blog.setDate(new Date());
-        blog.setAccess("public");
         blogRepository.save(blog);
         return "\"Successfully added\"";
     }
@@ -89,4 +88,5 @@ List<Blog> list = new LinkedList<Blog>();
         }
         return list;
     }
+
 }

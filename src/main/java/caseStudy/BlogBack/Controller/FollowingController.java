@@ -35,4 +35,11 @@ public class FollowingController {
        return followingService.findAllUser(currentUserService.getUserid(principal));
     }
 
+
+//    @GetMapping("/checkfollower/{userid}")
+//    public String checkfollower(@PathVariable(value = "userid") Long userid,Principal principal)
+//    {
+//        return followingService.checkfollower(userid, currentUserService.getUserid(principal));
+//    }
+
 }

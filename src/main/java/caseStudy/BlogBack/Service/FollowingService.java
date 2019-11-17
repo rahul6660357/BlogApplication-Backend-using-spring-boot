@@ -23,22 +23,35 @@ public class FollowingService {
         Optional<Users> user = userRepository.findById(userid);
         Optional<Users> user1 = userRepository.findById(userid1);
 
-            Following following = new Following();
+        Following following = new Following();
 
-            following.setFollowing(user.get());
-            following.setFollower(user1.get());
-            followingRepository.save(following);
+        following.setFollowing(user.get());
+        following.setFollower(user1.get());
+        followingRepository.save(following);
 
 
-return "\"sucess\"";
+        return "\"sucess\"";
     }
-
-
 
 
     public List<Following> findAllUser(Long userid) {
         Optional<Users> user = userRepository.findById(userid);
 
-        return  followingRepository.findByFollower(user);
+        return followingRepository.findByFollower(user);
     }
+
+//    public String checkfollower(Long userid, Long userid1) {
+//        Optional<Users> follower = userRepository.findById(userid1);
+//        List<Following> f = followingRepository.findByFollower(follower);
+//        for (Following ff : f) {
+//            if (ff.getFollowing().getUserid() == userid) {
+//
+//                break;
+//
+//            }
+//            return "\"true\"";
+//
+//        }
+//        return "\"false\"";
+//    }
 }

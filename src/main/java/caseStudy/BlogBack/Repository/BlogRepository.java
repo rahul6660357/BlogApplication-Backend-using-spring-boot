@@ -13,6 +13,6 @@ public interface BlogRepository extends JpaRepository<Blog , Long> {
  List<Blog> findByUsers(Optional<Users> user);
 List<Blog> findAllByUsersOrderByDateDesc(Users users);
 List<Blog> findByBlognameContainingAndAccessOrderByDateDesc(String str, String str1);
-
+List<Blog> findAllByCategoryAndAccess(String category,String access);
 
 }

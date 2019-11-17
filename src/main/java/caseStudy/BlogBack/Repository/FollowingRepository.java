@@ -13,6 +13,7 @@ public interface FollowingRepository extends JpaRepository<Following, Long> {
 
 
     List<Following> findByFollower(Optional<Users> users1);
+    List<Following> findAllByFollowerNot(Optional<Users> users);
 
 
 }
